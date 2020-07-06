@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NeonButton">
+        <attr name="text" format="reference" />
+        <attr name="textSize" format="reference" />
+        <attr name="neonColor" format="reference" />
+    </declare-styleable>
+</resources>

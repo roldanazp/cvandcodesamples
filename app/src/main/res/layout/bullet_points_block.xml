@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="presenter"
+            type="com.roldansworkshop.cv.module.home.presenter.BulletPointsPresenter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:minWidth="300dp"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tv_bullet_points_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/CVHeader1"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="80dp"
+            android:text="@string/bullet_points"
+            android:textAlignment="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/b_bullet_points"
+            app:layout_constraintVertical_chainStyle="packed"/>
+
+        <Button
+            android:id="@+id/b_bullet_points"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bullet_points_label"
+            android:drawableLeft="@drawable/bullet_button"
+            android:drawableRight="@drawable/ic_baseline_arrow_right_24"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bullet_points_description"
+            app:layout_constraintStart_toStartOf="@+id/tv_bullet_points_description"
+            app:layout_constraintEnd_toEndOf="@+id/tv_bullet_points_description"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{view -> presenter.onBulletPointsSelected()}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

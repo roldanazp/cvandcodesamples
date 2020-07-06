@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="vertical_x_entry_frame">30</integer>
+    <integer name="vertical_x_exit_frame">70</integer>
+    <integer name="vertical_x_scale">1000</integer>
+    <integer name="vertical_y_scale">2</integer>
+
+    <integer name="horizontal_y_entry_frame">30</integer>
+    <integer name="horizontal_y_exit_frame">70</integer>
+    <integer name="horizontal_x_scale">2</integer>
+    <integer name="horizontal_y_scale">1000</integer>
+</resources>

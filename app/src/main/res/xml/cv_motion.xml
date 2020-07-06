@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    // I - II
+    <Transition
+        app:constraintSetStart="@id/cs_home_top_right"
+        app:constraintSetEnd="@id/cs_home_top_left"
+        app:duration="2000">
+        <OnSwipe app:touchAnchorId="@id/drag_control"
+            app:dragDirection="dragStart"/>
+        <KeyFrameSet>
+            <KeyAttribute app:framePosition="50"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleX="@integer/horizontal_x_scale"/>
+            <KeyAttribute app:framePosition="0"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleY="1.0"/>
+            <KeyAttribute app:framePosition="@integer/horizontal_y_entry_frame"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleY="@integer/horizontal_y_scale"/>
+            <KeyAttribute app:framePosition="@integer/horizontal_y_exit_frame"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleY="@integer/horizontal_y_scale"/>
+            <KeyAttribute app:framePosition="100"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleY="1.0"/>
+        </KeyFrameSet>
+    </Transition>
+
+    // II - III
+    <Transition
+        app:constraintSetStart="@id/cs_home_top_left"
+        app:constraintSetEnd="@id/cs_home_bottom_left"
+        app:duration="2000">
+        <OnSwipe app:touchAnchorId="@id/drag_control"
+            app:dragDirection="dragDown"/>
+        <KeyFrameSet>
+            <KeyAttribute app:framePosition="50"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleY="@integer/vertical_y_scale"/>
+            <KeyAttribute app:framePosition="0"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleX="1.0"/>
+            <KeyAttribute app:framePosition="@integer/vertical_x_entry_frame"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleX="@integer/vertical_x_scale"/>
+            <KeyAttribute app:framePosition="@integer/vertical_x_exit_frame"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleX="@integer/vertical_x_scale"/>
+            <KeyAttribute app:framePosition="100"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleX="1.0"/>
+        </KeyFrameSet>
+    </Transition>
+
+    // III - IV
+    <Transition
+        app:constraintSetStart="@id/cs_home_bottom_left"
+        app:constraintSetEnd="@id/cs_home_bottom_right"
+        app:duration="2000">
+        <OnSwipe app:touchAnchorId="@id/drag_control"
+            app:dragDirection="dragEnd"/>
+        <KeyFrameSet>
+            <KeyAttribute app:framePosition="50"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleX="@integer/horizontal_x_scale"/>
+            <KeyAttribute app:framePosition="0"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleY="1.0"/>
+            <KeyAttribute app:framePosition="@integer/horizontal_y_entry_frame"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleY="@integer/horizontal_y_scale"/>
+            <KeyAttribute app:framePosition="@integer/horizontal_y_exit_frame"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleY="@integer/horizontal_y_scale"/>
+            <KeyAttribute app:framePosition="100"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleY="1.0"/>
+        </KeyFrameSet>
+    </Transition>
+
+    // IV - I
+    <Transition
+        app:constraintSetStart="@id/cs_home_bottom_right"
+        app:constraintSetEnd="@id/cs_home_top_right"
+        app:duration="2000">
+        <OnSwipe app:touchAnchorId="@id/drag_control"
+            app:dragDirection="dragUp"/>
+        <KeyFrameSet>
+            <KeyAttribute app:framePosition="50"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleY="@integer/vertical_y_scale"/>
+            <KeyAttribute app:framePosition="0"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleX="1.0"/>
+            <KeyAttribute app:framePosition="@integer/vertical_x_entry_frame"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleX="@integer/vertical_x_scale"/>
+            <KeyAttribute app:framePosition="@integer/vertical_x_exit_frame"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleX="@integer/vertical_x_scale"/>
+            <KeyAttribute app:framePosition="100"
+                app:motionTarget="@id/drag_control_separator"
+                android:scaleX="1.0"/>
+        </KeyFrameSet>
+    </Transition>
+
+    //QUADRANT I
+    <ConstraintSet android:id="@+id/cs_home_top_right">
+        <Constraint
+            android:id="@+id/drag_control"
+            android:layout_width="@dimen/drag_control_width"
+            android:layout_height="@dimen/drag_control_height"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:scaleY="1.2"
+            android:scaleX="1.2"/>
+        <Constraint
+            android:id="@+id/drag_control_separator"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            app:layout_constraintEnd_toEndOf="@id/drag_control"
+            app:layout_constraintTop_toTopOf="@id/drag_control"/>
+        <Constraint
+            android:id="@+id/i_quadrant_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/i_quadrant_2"
+            app:layout_constraintTop_toBottomOf="@+id/i_quadrant_4"
+            app:layout_constraintVertical_weight="1"
+            app:layout_constraintHorizontal_weight="1"/>
+        <Constraint
+            android:id="@+id/i_quadrant_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/i_quadrant_1"
+            app:layout_constraintTop_toBottomOf="@+id/i_quadrant_3"
+            app:layout_constraintVertical_weight="1"/>
+        <Constraint
+            android:id="@+id/i_quadrant_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/i_quadrant_4"
+            app:layout_constraintBottom_toTopOf="@+id/i_quadrant_2"
+            app:layout_constraintVertical_weight="0"
+            app:layout_constraintHorizontal_weight="0"/>
+        <Constraint
+            android:id="@+id/i_quadrant_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/i_quadrant_3"
+            app:layout_constraintBottom_toTopOf="@+id/i_quadrant_1"
+            app:layout_constraintVertical_weight="0"
+            app:layout_constraintHorizontal_weight="1"/>
+    </ConstraintSet>
+
+    //QUADRANT II
+    <ConstraintSet android:id="@+id/cs_home_top_left">
+        <Constraint
+            android:id="@+id/drag_control"
+            android:layout_width="@dimen/drag_control_width"
+            android:layout_height="@dimen/drag_control_height"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scaleY="1.2"
+            android:scaleX="1.2"/>
+        <Constraint
+            android:id="@+id/drag_control_separator"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            app:layout_constraintStart_toStartOf="@id/drag_control"
+            app:layout_constraintTop_toTopOf="@id/drag_control"/>
+        <Constraint
+            android:id="@+id/i_quadrant_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/i_quadrant_2"
+            app:layout_constraintTop_toBottomOf="@+id/i_quadrant_4"
+            app:layout_constraintVertical_weight="1"/>
+        <Constraint
+            android:id="@+id/i_quadrant_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/i_quadrant_1"
+            app:layout_constraintTop_toBottomOf="@+id/i_quadrant_3"
+            app:layout_constraintVertical_weight="1"
+            app:layout_constraintHorizontal_weight="1"/>
+    </ConstraintSet>
+
+    //QUADRANT III
+    <ConstraintSet android:id="@+id/cs_home_bottom_left">
+        <Constraint
+            android:id="@+id/drag_control"
+            android:layout_width="@dimen/drag_control_width"
+            android:layout_height="@dimen/drag_control_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scaleY="1.2"
+            android:scaleX="1.2"/>
+        <Constraint
+            android:id="@+id/drag_control_separator"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            app:layout_constraintStart_toStartOf="@id/drag_control"
+            app:layout_constraintBottom_toBottomOf="@id/drag_control"/>
+        <Constraint
+            android:id="@+id/i_quadrant_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/i_quadrant_1"
+            app:layout_constraintTop_toBottomOf="@+id/i_quadrant_3"
+            app:layout_constraintVertical_weight="0"
+            app:layout_constraintHorizontal_weight="1"/>
+        <Constraint
+            android:id="@+id/i_quadrant_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/i_quadrant_4"
+            app:layout_constraintBottom_toTopOf="@+id/i_quadrant_2"
+            app:layout_constraintVertical_weight="1"
+            app:layout_constraintHorizontal_weight="1"/>
+        <Constraint
+            android:id="@+id/i_quadrant_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/i_quadrant_3"
+            app:layout_constraintBottom_toTopOf="@+id/i_quadrant_1"
+            app:layout_constraintVertical_weight="1"/>
+    </ConstraintSet>
+
+    //QUADRANT IV
+    <ConstraintSet android:id="@+id/cs_home_bottom_right">
+        <Constraint
+            android:id="@+id/drag_control"
+            android:layout_width="@dimen/drag_control_width"
+            android:layout_height="@dimen/drag_control_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:scaleY="1.2"
+            android:scaleX="1.2"/>
+        <Constraint
+            android:id="@+id/drag_control_separator"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            app:layout_constraintEnd_toEndOf="@id/drag_control"
+            app:layout_constraintBottom_toBottomOf="@id/drag_control"/>
+        <Constraint
+            android:id="@+id/i_quadrant_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/i_quadrant_2"
+            app:layout_constraintTop_toBottomOf="@+id/i_quadrant_4"
+            app:layout_constraintVertical_weight="0"
+            app:layout_constraintHorizontal_weight="1"/>
+
+        <Constraint
+            android:id="@+id/i_quadrant_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/i_quadrant_4"
+            app:layout_constraintBottom_toTopOf="@+id/i_quadrant_2"
+            app:layout_constraintVertical_weight="1"/>
+        <Constraint
+            android:id="@+id/i_quadrant_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/i_quadrant_3"
+            app:layout_constraintBottom_toTopOf="@+id/i_quadrant_1"
+            app:layout_constraintVertical_weight="1"
+            app:layout_constraintHorizontal_weight="1"/>
+    </ConstraintSet>
+
+</MotionScene>

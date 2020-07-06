@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="presenter"
+            type="com.roldansworkshop.cv.module.home.presenter.ContactPresenter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:minWidth="300dp"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:padding="20dp">
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/CVTitle"
+            android:gravity="center"
+            android:text="@string/contact_info_title"
+            android:layout_marginTop="50dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_contact_profile_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_contact_profile_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/CVSubtitle"
+            android:textAlignment="center"
+            android:text="@{presenter.profile.name}"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/CVSubtitle"
+            android:textAlignment="center"
+            android:text="@{@string/contact_info_address(presenter.profile.address.city, presenter.profile.address.country)}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_contact_profile_name"
+            android:onClick="@{view -> presenter.onLocationSelected()}"/>
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/CVSubtitle"
+            android:textAlignment="center"
+            android:text="@{presenter.profile.email}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_phone_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location"
+            android:onClick="@{view -> presenter.onEmailSelected()}"/>
+
+        <TextView
+            android:id="@+id/tv_phone_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/CVSubtitle"
+            android:textAlignment="center"
+            android:text="@{@string/phone_number_uri(presenter.profile.phone.countryCode, presenter.profile.phone.number)}"
+            app:layout_constraintBottom_toTopOf="@+id/lav_drag"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_email"
+            android:onClick="@{view -> presenter.onPhoneNumberSelected()}"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lav_drag"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:lottie_fileName="tap_click.json"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_phone_number"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

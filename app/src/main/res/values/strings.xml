@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">CV</string>
+    <string name="work_experience">Past and current relevant projects I being involve in a significant way</string>
+    <string name="work_experience_button_label">Proyects</string>
+    <string name="code_samples">Examples I consider in some how interesting, relevant or new stuff</string>
+    <string name="code_samples_button_label">Code samples</string>
+    <string name="bullet_points">Summary of qualifications and technical proficiencies</string>
+    <string name="bullet_points_label">Bullet points</string>
+    <string name="contact_info_title">Contact information</string>
+    <string name="contact_info_address">%1$s, %2$s</string>
+    <string name="downloading_profile">Downloading profile</string>
+    <string name="phone_number_uri">tel:%1$s%2$s</string>
+    <string name="geo_location_template">geo:%1$f,%2$f</string>
+    <string name="google_maps_package">com.google.android.apps.maps</string>
+    <string name="email_message_code">message/rfc822</string>
+    <string name="email_selector_title">Choose an Email client :</string>
+    <string name="projects_title">Work experience</string>
+    <string name="samples_title">Code samples</string>
+    <string name="timelapse">%1$s - %2$s</string>
+    <string name="neon_button_label">Neon button</string>
+</resources>

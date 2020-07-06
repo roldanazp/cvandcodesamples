@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.roldansworkshop.cv.module.splashscreen.SplashScreenFragment"
+        android:label="fragmentSplashScreen"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/enter_unpopable"
+            app:exitAnim="@anim/exit_unpopable"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.roldansworkshop.cv.module.home.HomeFragment"
+        android:label="fragmentHome"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_bulletPointsFragment"
+            app:destination="@id/bulletPointsFragment"
+            app:enterAnim="@anim/enter_default"
+            app:exitAnim="@anim/exit_default"
+            app:popExitAnim="@anim/pop_exit_default"
+            app:popEnterAnim="@anim/pop_enter_default"/>
+        <action
+            android:id="@+id/action_homeFragment_to_projectsFragment"
+            app:destination="@id/projectsFragment"
+            app:enterAnim="@anim/enter_default"
+            app:exitAnim="@anim/exit_default"
+            app:popExitAnim="@anim/pop_exit_default"
+            app:popEnterAnim="@anim/pop_enter_default"/>
+        <action
+            android:id="@+id/action_homeFragment_to_samplesFragment"
+            app:destination="@id/samplesFragment"
+            app:enterAnim="@anim/enter_default"
+            app:exitAnim="@anim/exit_default"
+            app:popExitAnim="@anim/pop_exit_default"
+            app:popEnterAnim="@anim/pop_enter_default"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/bulletPointsFragment"
+        android:name="com.roldansworkshop.cv.module.bulletpoints.BulletPointsFragment"
+        android:label="fragmentBulletPoints"
+        tools:layout="@layout/fragment_list">
+    </fragment>
+
+    <fragment
+        android:id="@+id/projectsFragment"
+        android:name="com.roldansworkshop.cv.module.experience.work.ProjectsFragment"
+        android:label="fragmentProjects"
+        tools:layout="@layout/fragment_list">
+    </fragment>
+
+    <fragment
+        android:id="@+id/samplesFragment"
+        android:name="com.roldansworkshop.cv.module.experience.samples.SamplesFragment"
+        android:label="fragmentSamples"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_samplesFragment_to_sampleNeonButtonActivity"
+            app:destination="@id/sampleNeonButtonActivity"
+            app:enterAnim="@anim/enter_default"
+            app:exitAnim="@anim/exit_default"
+            app:popExitAnim="@anim/pop_exit_default"
+            app:popEnterAnim="@anim/pop_enter_default"/>
+    </fragment>
+    <activity
+        android:id="@+id/sampleNeonButtonActivity"
+        android:name="com.roldansworkshop.neonbutton.SampleNeonButtonActivity"
+        android:label="SampleNeonButtonActivity" />
+
+</navigation>
