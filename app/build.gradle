@@ -18,10 +18,26 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "PARSE_DATE_PATTERN", '"EEE MMM dd yyyy HH:mm:ss"'
+        buildConfigField "String", "FORMAT_DATE_PATTERN", '"MMM yyyy"'
+
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../signing/key.jks")
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
     }
 
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

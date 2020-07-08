@@ -40,7 +40,7 @@ class ProjectsFragment : AbstractFragment(), HeaderPresenter {
             binding.rvContent.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(activity)
-                adapter = ProjectAdapter(bulletPointList.toTypedArray())
+                adapter = ProjectAdapter(bulletPointList)
                 binding.mlContainer.transitionToEnd()
             }
         })
