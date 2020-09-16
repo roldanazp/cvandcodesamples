@@ -1,17 +1,18 @@
 package com.roldansworkshop.cv.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.roldansworkshop.cv.firebase.FirebasePath
 import com.roldansworkshop.cv.model.BulletPoint
 import com.roldansworkshop.cv.model.Profile
 import com.roldansworkshop.cv.model.Project
 
 class MainViewModel: ViewModel() {
+
     private val doc: DocumentReference by lazy{
-        FirebaseFirestore.getInstance().document("/users/YmR7jdeNG5JgAOOq9muG/")
+        FirebaseFirestore.getInstance().document(FirebasePath.PROFILE_DOC.path)
     }
 
     val profileLiveData: MutableLiveData<Profile> by lazy{
@@ -52,7 +53,7 @@ class MainViewModel: ViewModel() {
     }
 
     private fun fetchBulletPoints(){
-        val colRef = doc.collection("bulletpoints")
+        val colRef = doc.collection(FirebasePath.PROFILE_BLLETPOINTS_COL.node)
         colRef.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
 
             if (firebaseFirestoreException != null) {
@@ -72,7 +73,7 @@ class MainViewModel: ViewModel() {
     }
 
     private fun fetchProjects(){
-        val colRef = doc.collection("projects")
+        val colRef = doc.collection(FirebasePath.PROFILE_PROJECTS_COL.node)
         colRef.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
 
             if (firebaseFirestoreException != null) {
