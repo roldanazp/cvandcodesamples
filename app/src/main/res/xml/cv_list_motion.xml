@@ -7,7 +7,7 @@
     <Transition
         app:constraintSetStart="@id/cs_bullet_points_loading"
         app:constraintSetEnd="@id/cs_bullet_points_ready"
-        app:duration="2000">
+        app:duration="@integer/list_in_animation_duration">
     </Transition>
 
     //LOADING

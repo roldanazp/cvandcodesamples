@@ -5,22 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.roldansworkshop.cv.R
-import com.roldansworkshop.cv.model.Profile
 import com.roldansworkshop.cv.viewmodel.MainViewModel
 import java.util.*
 import kotlin.concurrent.schedule
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.roldansworkshop.cv.AbstractFragment
-
-
-const val SPLASHSCREEN_DELAY_NAME = "splashscreen_delay_name"
-const val SPLASHSCREEN_DELAY = 1500L
+import com.roldansworkshop.cv.firebase.RemoteConfig
+import com.roldansworkshop.cv.databinding.FragmentSplashScreenBinding
 
 class SplashScreenFragment : AbstractFragment() {
 
-    private var splashScreenDelayelapsed = false
+    private var isSplashScreenDelayElapsed = false
     private val shoeViewModel: MainViewModel by activityViewModels()
 
     /**
@@ -41,29 +37,20 @@ class SplashScreenFragment : AbstractFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        shoeViewModel.profileLiveData.observe(viewLifecycleOwner, Observer<Profile>{ profile ->
-            if(splashScreenDelayelapsed){
-                forward()
-            }
-        })
-        return inflater.inflate(R.layout.fragment_splash_screen, container, false)
+        shoeViewModel.profileLiveData.observe(viewLifecycleOwner, Observer{ forward() })
+        shoeViewModel.remoteConfig.observe(viewLifecycleOwner, Observer{ remoteConfig -> startCountDown(remoteConfig) })
+        return FragmentSplashScreenBinding.inflate(inflater, container, false).root
     }
 
     /**
      * Go to the destination [SplashScreenFragment.getNavitationAction] returns
      */
     private fun forward() {
-        val action = SplashScreenFragmentDirections.actionSplashScreenFragmentToHomeFragment()
-        findNavController().navigate(action)
-    }
-
-    /**
-     * Re-start [SplashScreenFragment.timerTask] count down, time resets as well
-     */
-    override fun onResume() {
-        super.onResume()
-        startCountDown()
+        if(isSplashScreenDelayElapsed && shoeViewModel.profileLiveData.value != null
+            && shoeViewModel.remoteConfig.value != null){
+            val action = SplashScreenFragmentDirections.actionSplashScreenFragmentToHomeFragment()
+            findNavController().navigate(action)
+        }
     }
 
     /**
@@ -76,18 +63,13 @@ class SplashScreenFragment : AbstractFragment() {
     }
 
     /**
-     * Start [SplashScreenFragment.timerTask] count down of [SPLASHSCREEN_DELAY]
+     * Start [SplashScreenFragment.timerTask] count down of remote configs
      */
-    private fun startCountDown() {
-        timerTask = Timer(SPLASHSCREEN_DELAY_NAME, false)
-            .schedule(SPLASHSCREEN_DELAY) {
-                splashScreenDelayelapsed = true
-
-                shoeViewModel.profileLiveData.value?.let {
-                    forward()
-                }
-
+    private fun startCountDown(remoteConfig: RemoteConfig) {
+        timerTask = Timer(remoteConfig.splashscreenDelayKey, false)
+            .schedule(remoteConfig.splashscreenDelay) {
+                isSplashScreenDelayElapsed = true
+                forward()
             }
     }
-
 }

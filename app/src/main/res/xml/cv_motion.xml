@@ -110,12 +110,9 @@
     <ConstraintSet android:id="@+id/cs_home_top_right">
         <Constraint
             android:id="@+id/drag_control"
-            android:layout_width="@dimen/drag_control_width"
-            android:layout_height="@dimen/drag_control_height"
+            style="@style/DragControl"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:scaleY="1.2"
-            android:scaleX="1.2"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
         <Constraint
             android:id="@+id/drag_control_separator"
             android:layout_width="4dp"
@@ -124,41 +121,21 @@
             app:layout_constraintTop_toTopOf="@id/drag_control"/>
         <Constraint
             android:id="@+id/i_quadrant_1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/i_quadrant_2"
-            app:layout_constraintTop_toBottomOf="@+id/i_quadrant_4"
+            style="@style/Quadrant1"
             app:layout_constraintVertical_weight="1"
             app:layout_constraintHorizontal_weight="1"/>
         <Constraint
             android:id="@+id/i_quadrant_2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/i_quadrant_1"
-            app:layout_constraintTop_toBottomOf="@+id/i_quadrant_3"
+            style="@style/Quadrant2"
             app:layout_constraintVertical_weight="1"/>
         <Constraint
             android:id="@+id/i_quadrant_3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/i_quadrant_4"
-            app:layout_constraintBottom_toTopOf="@+id/i_quadrant_2"
+            style="@style/Quadrant3"
             app:layout_constraintVertical_weight="0"
             app:layout_constraintHorizontal_weight="0"/>
         <Constraint
             android:id="@+id/i_quadrant_4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/i_quadrant_3"
-            app:layout_constraintBottom_toTopOf="@+id/i_quadrant_1"
+            style="@style/Quadrant4"
             app:layout_constraintVertical_weight="0"
             app:layout_constraintHorizontal_weight="1"/>
     </ConstraintSet>
@@ -167,12 +144,9 @@
     <ConstraintSet android:id="@+id/cs_home_top_left">
         <Constraint
             android:id="@+id/drag_control"
-            android:layout_width="@dimen/drag_control_width"
-            android:layout_height="@dimen/drag_control_height"
+            style="@style/DragControl"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:scaleY="1.2"
-            android:scaleX="1.2"/>
+            app:layout_constraintStart_toStartOf="parent"/>
         <Constraint
             android:id="@+id/drag_control_separator"
             android:layout_width="4dp"
@@ -181,21 +155,11 @@
             app:layout_constraintTop_toTopOf="@id/drag_control"/>
         <Constraint
             android:id="@+id/i_quadrant_1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/i_quadrant_2"
-            app:layout_constraintTop_toBottomOf="@+id/i_quadrant_4"
+            style="@style/Quadrant1"
             app:layout_constraintVertical_weight="1"/>
         <Constraint
             android:id="@+id/i_quadrant_2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/i_quadrant_1"
-            app:layout_constraintTop_toBottomOf="@+id/i_quadrant_3"
+            style="@style/Quadrant2"
             app:layout_constraintVertical_weight="1"
             app:layout_constraintHorizontal_weight="1"/>
     </ConstraintSet>
@@ -204,12 +168,9 @@
     <ConstraintSet android:id="@+id/cs_home_bottom_left">
         <Constraint
             android:id="@+id/drag_control"
-            android:layout_width="@dimen/drag_control_width"
-            android:layout_height="@dimen/drag_control_height"
+            style="@style/DragControl"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:scaleY="1.2"
-            android:scaleX="1.2"/>
+            app:layout_constraintStart_toStartOf="parent"/>
         <Constraint
             android:id="@+id/drag_control_separator"
             android:layout_width="4dp"
@@ -218,32 +179,17 @@
             app:layout_constraintBottom_toBottomOf="@id/drag_control"/>
         <Constraint
             android:id="@+id/i_quadrant_2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/i_quadrant_1"
-            app:layout_constraintTop_toBottomOf="@+id/i_quadrant_3"
+            style="@style/Quadrant2"
             app:layout_constraintVertical_weight="0"
             app:layout_constraintHorizontal_weight="1"/>
         <Constraint
             android:id="@+id/i_quadrant_3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/i_quadrant_4"
-            app:layout_constraintBottom_toTopOf="@+id/i_quadrant_2"
+            style="@style/Quadrant3"
             app:layout_constraintVertical_weight="1"
             app:layout_constraintHorizontal_weight="1"/>
         <Constraint
             android:id="@+id/i_quadrant_4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/i_quadrant_3"
-            app:layout_constraintBottom_toTopOf="@+id/i_quadrant_1"
+            style="@style/Quadrant4"
             app:layout_constraintVertical_weight="1"/>
     </ConstraintSet>
 
@@ -251,12 +197,9 @@
     <ConstraintSet android:id="@+id/cs_home_bottom_right">
         <Constraint
             android:id="@+id/drag_control"
-            android:layout_width="@dimen/drag_control_width"
-            android:layout_height="@dimen/drag_control_height"
+            style="@style/DragControl"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:scaleY="1.2"
-            android:scaleX="1.2"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
         <Constraint
             android:id="@+id/drag_control_separator"
             android:layout_width="4dp"
@@ -265,32 +208,17 @@
             app:layout_constraintBottom_toBottomOf="@id/drag_control"/>
         <Constraint
             android:id="@+id/i_quadrant_1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/i_quadrant_2"
-            app:layout_constraintTop_toBottomOf="@+id/i_quadrant_4"
+            style="@style/Quadrant1"
             app:layout_constraintVertical_weight="0"
             app:layout_constraintHorizontal_weight="1"/>
 
         <Constraint
             android:id="@+id/i_quadrant_3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/i_quadrant_4"
-            app:layout_constraintBottom_toTopOf="@+id/i_quadrant_2"
+            style="@style/Quadrant3"
             app:layout_constraintVertical_weight="1"/>
         <Constraint
             android:id="@+id/i_quadrant_4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/i_quadrant_3"
-            app:layout_constraintBottom_toTopOf="@+id/i_quadrant_1"
+            style="@style/Quadrant4"
             app:layout_constraintVertical_weight="1"
             app:layout_constraintHorizontal_weight="1"/>
     </ConstraintSet>

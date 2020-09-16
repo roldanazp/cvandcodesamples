@@ -17,9 +17,9 @@ object ProjectBindingAdapter {
     @JvmStatic
     fun setProjectDates(view: TextView, project: Project) {
         try{
-            val dateFormat: DateFormat = SimpleDateFormat(BuildConfig.PARSE_DATE_PATTERN, Locale.US)
-            val startDate = dateFormat.parse(project.start)
-            val endDate = dateFormat.parse(project.end)
+            val dateFormatIn: DateFormat = SimpleDateFormat(BuildConfig.PARSE_DATE_PATTERN, Locale.US)
+            val startDate = dateFormatIn.parse(project.start)
+            val endDate = dateFormatIn.parse(project.end)
             val dateFormatOut: DateFormat = SimpleDateFormat(BuildConfig.FORMAT_DATE_PATTERN, Locale.US)
             if(startDate!=null && endDate!=null){
                 view.text = view.context.getString(R.string.timelapse,

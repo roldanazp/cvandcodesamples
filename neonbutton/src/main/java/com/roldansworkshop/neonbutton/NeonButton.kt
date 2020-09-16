@@ -39,7 +39,7 @@ class NeonButton @JvmOverloads constructor(
     private var pressedWidthPercentage = 0.0F
 
     /**
-     * Attributes START
+     * Attributes
      */
     private var text: CharSequence
     private var textSize: Float
@@ -96,7 +96,6 @@ class NeonButton @JvmOverloads constructor(
             ButtonState.Clicked -> {
             }
             ButtonState.Pressed -> {
-
             }
             ButtonState.Idle -> {
             }

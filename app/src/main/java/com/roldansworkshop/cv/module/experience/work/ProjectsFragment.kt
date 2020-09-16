@@ -1,7 +1,6 @@
 package com.roldansworkshop.cv.module.experience.work
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +22,7 @@ import com.roldansworkshop.cv.viewmodel.MainViewModel
 class ProjectsFragment : AbstractFragment(), HeaderPresenter {
 
     override val title: Int = R.string.projects_title
-    private val shoeViewModel: MainViewModel by activityViewModels()
+    private val mainViewModel: MainViewModel by activityViewModels()
     private lateinit var binding:FragmentListBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,8 +34,8 @@ class ProjectsFragment : AbstractFragment(), HeaderPresenter {
         return binding.root
     }
 
-    private fun observeProjects(){
-        shoeViewModel.projects.observe(viewLifecycleOwner, Observer<List<Project>>{ bulletPointList ->
+    private fun observeProjects() = mainViewModel.projects
+        .observe(viewLifecycleOwner, Observer<List<Project>>{ bulletPointList ->
             binding.rvContent.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(activity)
@@ -44,10 +43,7 @@ class ProjectsFragment : AbstractFragment(), HeaderPresenter {
                 binding.mlContainer.transitionToEnd()
             }
         })
-    }
 
-    override fun onBackSelected() {
-        findNavController().popBackStack()
-    }
+    override fun onBackSelected():Boolean = findNavController().popBackStack()
 
 }

@@ -8,6 +8,7 @@ import android.widget.Toast
 class SampleNeonButtonActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_sample_neon_button)
         val neonButtonA = findViewById<NeonButton>(R.id.nb_sampel_a)
         neonButtonA.setOnClickListener {

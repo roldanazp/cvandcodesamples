@@ -3,7 +3,6 @@ package com.roldansworkshop.cv.module.home
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +33,7 @@ class HomeFragment : AbstractFragment(),
     ExperiencePresenter,
     ElevatorPitchPresenter {
 
-    private val shoeViewModel: MainViewModel by activityViewModels()
+    private val mainViewModel: MainViewModel by activityViewModels()
     override var profile: Profile? = null
     private lateinit var binding: FragmentHomeBinding
 
@@ -48,7 +47,7 @@ class HomeFragment : AbstractFragment(),
     }
 
     fun observeProfile(){
-        shoeViewModel.profileLiveData.observe(viewLifecycleOwner, Observer<Profile>{ profile ->
+        mainViewModel.profileLiveData.observe(viewLifecycleOwner, Observer<Profile>{ profile ->
             this@HomeFragment.profile = profile
             binding.iQuadrant1.presenter = this
             binding.iQuadrant2.presenter = this
@@ -113,6 +112,7 @@ class HomeFragment : AbstractFragment(),
     override fun onBulletPointsSelected() {
         val action = HomeFragmentDirections.actionHomeFragmentToBulletPointsFragment()
         findNavController().navigate(action)
+        //TODO why i increment here but not on the othe
         this.increment(BulletPointsFragment::class.qualifiedName)
     }
 
@@ -125,7 +125,7 @@ class HomeFragment : AbstractFragment(),
     }
 
     /**
-     * TODO Display [ExamplesFragment]
+     * Display [ExamplesFragment]
      */
     override fun onExamplesSelected() {
         val action = HomeFragmentDirections.actionHomeFragmentToSamplesFragment()

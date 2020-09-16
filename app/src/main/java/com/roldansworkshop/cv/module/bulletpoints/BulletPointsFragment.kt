@@ -34,8 +34,8 @@ class BulletPointsFragment : AbstractFragment(), HeaderPresenter {
         return binding.root
     }
 
-    private fun observeBulletPointsList(){
-        shoeViewModel.bulletPoints.observe(viewLifecycleOwner, Observer{ bulletPointList ->
+    private fun observeBulletPointsList() = shoeViewModel.bulletPoints
+        .observe(viewLifecycleOwner, Observer{ bulletPointList ->
             binding.rvContent.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(activity)
@@ -48,10 +48,7 @@ class BulletPointsFragment : AbstractFragment(), HeaderPresenter {
                 this@BulletPointsFragment.decrement(BulletPointsFragment::class.qualifiedName)
             }
         })
-    }
 
-    override fun onBackSelected() {
-        findNavController().popBackStack()
-    }
+    override fun onBackSelected() : Boolean = findNavController().popBackStack()
 
 }

@@ -52,8 +52,8 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-    dataBinding {
-        enabled true
+    buildFeatures {
+        dataBinding true
     }
 
 }
@@ -70,7 +70,6 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
 
     implementation "com.airbnb.android:lottie:$lottie"
-    implementation "com.google.firebase:firebase-firestore:$firebase_firestore"
 
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions"
 
@@ -86,6 +85,8 @@ dependencies {
 
     implementation "com.google.firebase:firebase-analytics:$firebase_analytics"
     implementation "com.google.firebase:firebase-crashlytics:$firebase_crashlytics"
+    implementation "com.google.firebase:firebase-firestore:$firebase_firestore"
+    implementation "com.google.firebase:firebase-config-ktx:$firebase_config"
 
     testImplementation "junit:junit:$junit"
     androidTestImplementation "androidx.test:runner:$runner"

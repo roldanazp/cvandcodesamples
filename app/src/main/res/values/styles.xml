@@ -6,10 +6,10 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="android:buttonStyle">@style/ShoeStoreButton</item>
+        <item name="android:buttonStyle">@style/CVButton</item>
     </style>
 
-    <style name="ShoeStoreButton" parent="Widget.AppCompat.Button">
+    <style name="CVButton" parent="Widget.AppCompat.Button">
         <item name="android:textColor">@color/colorLightText</item>
         <item name="android:background">@drawable/button_bg</item>
         <item name="android:drawablePadding">10dp</item>
@@ -41,6 +41,46 @@
     <style name="CVText" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="DragControl">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:scaleY">1.2</item>
+        <item name="android:scaleX">1.2</item>
+    </style>
+
+    <style name="Quadrant1">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toStartOf">@+id/i_quadrant_2</item>
+        <item name="layout_constraintTop_toBottomOf">@+id/i_quadrant_4</item>
+    </style>
+    <style name="Quadrant2">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toEndOf">@+id/i_quadrant_1</item>
+        <item name="layout_constraintTop_toBottomOf">@+id/i_quadrant_3</item>
+    </style>
+    <style name="Quadrant3">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toEndOf">@+id/i_quadrant_4</item>
+        <item name="layout_constraintBottom_toTopOf">@+id/i_quadrant_2</item>
+    </style>
+    <style name="Quadrant4">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toStartOf">@+id/i_quadrant_3</item>
+        <item name="layout_constraintBottom_toTopOf">@+id/i_quadrant_1</item>
     </style>
 
 </resources>

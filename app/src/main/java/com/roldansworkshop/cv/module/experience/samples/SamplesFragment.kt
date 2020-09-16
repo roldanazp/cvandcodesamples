@@ -31,21 +31,15 @@ class SamplesFragment : Fragment(), HeaderPresenter, SamplesPresenter {
         return binding.root
     }
 
-    private fun setUpSamples() {
-        binding.rvContent.apply {
+    private fun setUpSamples() = binding.rvContent.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(activity)
             adapter = SamplesAdapter(Sample.values(), this@SamplesFragment)
             binding.mlContainer.transitionToEnd()
         }
-    }
 
-    override fun onBackSelected() {
-        findNavController().popBackStack()
-    }
+    override fun onBackSelected(): Boolean = findNavController().popBackStack()
 
-    override fun onSampleSelected(sample: Sample) {
-        findNavController().navigate(sample.navDirections)
-    }
+    override fun onSampleSelected(sample: Sample) = findNavController().navigate(sample.navDirections)
 
 }
