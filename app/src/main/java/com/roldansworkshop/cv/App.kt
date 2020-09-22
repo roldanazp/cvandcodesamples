@@ -1,9 +1,10 @@
 package com.roldansworkshop.cv
 
 import android.app.Application
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.remoteconfig.ktx.remoteConfig
-import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
+import androidx.navigation.NavController
+import com.roldansworkshop.cv.dagger.ApplicationComponent
+import com.roldansworkshop.cv.dagger.DaggerApplicationComponent
+import com.roldansworkshop.cv.dagger.PresenterModule
 import com.udacity.shoestore.timber.CVTree
 import timber.log.Timber
 /**
@@ -11,17 +12,16 @@ import timber.log.Timber
  */
 class App: Application() {
 
+    var appComponent: ApplicationComponent? = null
+    var navController: NavController? = null
+
     /**
      * Initialize [Timber]
      */
     override fun onCreate() {
         super.onCreate()
         Timber.plant(CVTree())
-        initRemoteConfig()
-    }
-
-    private fun initRemoteConfig(){
-
+        appComponent = DaggerApplicationComponent.builder().presenterModule(PresenterModule(this)).build()
     }
 
 }

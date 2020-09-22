@@ -98,6 +98,9 @@ dependencies {
 
     androidTestImplementation "androidx.test.ext:junit:$ext_junit"
 
+    implementation 'com.google.dagger:dagger:2.27'
+    kapt 'com.google.dagger:dagger-compiler:2.27'
+
     implementation project(":neonbutton")
 
 }
